@@ -1,3 +1,2 @@
 .env
 venv/
-mongodb+srv://ajay:<db_password>@cluster0.dabkgao.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
