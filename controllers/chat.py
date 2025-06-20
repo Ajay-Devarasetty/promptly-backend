@@ -28,7 +28,6 @@ def generate_answer(question: str) -> str:
 
 async def save_chat(chat: Chat):
     chat_dict = chat.dict()
-    print("chat ",chat_dict)
     # Convert user_id string to ObjectId for MongoDB
     try:
         chat_dict["user_id"] = ObjectId(chat.user_id)
@@ -40,7 +39,6 @@ async def save_chat(chat: Chat):
     # Generate answer in a thread pool (blocking operation)
     answer = await run_in_threadpool(generate_answer, chat.question)
     chat_dict["answer"] = answer
-    print("answer", answer)
 
     # Insert into MongoDB
     result = chat_collection.insert_one(chat_dict)
